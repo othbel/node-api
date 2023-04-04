@@ -29,3 +29,10 @@ Afin d'avoir accès à l'api, vous pouvez utiliser le tunnel LoadBalancer de Min
 ```bash
 minikube service dotnet-service
 ```
+
+
+### Tester l'API
+
+Pour tester l'API, il faut utiliser un client REST type Postman afin de réaliser des requêtes POST vers `/story` avec un **JSON** dans le body de la requête contenant comme attribut **text** et une valeur de type **string**. Ex: {"text": "mon texte"}.
+Pour récupérer le contenu d'un fichier d'histoire, il suffit d'utiliser le même endpoint `/story` mais cette fois-ci en **GET**.
+Pour crasher l'application, une requête GET vers `/error` plantera l'application.
