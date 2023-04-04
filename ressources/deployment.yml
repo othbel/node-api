@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-node-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api-node
+  
+  template:
+    metadata:
+      labels:
+        app: api-node
+    spec:
+      volumes:
+        - name: story-volume
+          hostPath:
+            path: /story
+            type: DirectoryOrCreate
+      containers:
+      - name: api-node
+        image: othbel/api-node:1.0.0
+        volumeMounts:
+          - mountPath: ./story
+            name: story-volume
+        env:
+          - name: STORY_FOLDER
+            valueFrom:
+              configMapKeyRef:
+                name: api-node-config
+                key: STORY_FOLDER
+                
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
