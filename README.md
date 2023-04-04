@@ -13,8 +13,8 @@ git clone https://github.com/othbel/node-api.git
 ### Publier l'image Docker sur Docker Hub
 Pour déployer l'application avec kubernetes, l'image Docker doit être disponible sur un registry. Pour publier l'image Docker, il faudra *build* l'image sur votre machine avant, vous pouvez utiliser les commandes suivantes pour *build* et publier l'image:
 ```bash
-docker build -t <DockerID>/dotnet-api:<tag> .
-docker push <DockerID>/dotnet-api:<tag>
+docker build -t <DockerID>/node-api:<tag> .
+docker push <DockerID>/node-api:<tag>
 ```
 
 ### Déployer l'application avec K8s
@@ -27,7 +27,7 @@ kubectl apply -f ressources/config.yml,ressources/deployment.yml,ressources/serv
 ### Exposer l'API avec minikube
 Afin d'avoir accès à l'api, vous pouvez utiliser le tunnel LoadBalancer de Minikube.
 ```bash
-minikube service dotnet-service
+minikube service api-node-service
 ```
 
 
