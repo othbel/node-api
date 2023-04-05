@@ -22,7 +22,7 @@ spec:
       - name: api-node
         image: othbel/node-api:1.0.0
         volumeMounts:
-          - mountPath: ./story
+          - mountPath: /app/story
             name: story-volume
         env:
           - name: STORY_FOLDER
