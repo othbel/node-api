@@ -20,7 +20,7 @@ spec:
             type: DirectoryOrCreate
       containers:
       - name: api-node
-        image: othbel/node-api:1.1.0
+        image: othbel/node-api:1.0.0
         volumeMounts:
           - mountPath: /app/story
             name: story-volume
